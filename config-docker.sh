@@ -35,10 +35,10 @@ cat > "$DAEMON_JSON" <<'EOF'
   "debug": true,
   "experimental": true,
   "registry-mirrors": [
-    "https://docker.m.daocloud.io",
-    "https://mirror.baidubce.com",
-    "https://registry.docker-cn.com",
-    "https://docker.mirrors.ustc.edu.cn"
+    "https://docker.1ms.run",
+    "https://hub.rat.dev",
+    "https://dockerproxy.net",
+    "https://proxy.vvvv.ee"
   ]
 }
 EOF
