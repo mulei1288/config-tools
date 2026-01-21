@@ -1,0 +1,22 @@
+# docker-compose.yml
+version: '3.8'
+
+services:
+  dns:
+    image: coredns/coredns:latest
+    container_name: dns-server
+    restart: unless-stopped
+    ports:
+      - "53:53/tcp"
+      - "53:53/udp"
+      - "9153:9153"  # 监控端口
+    volumes:
+      - ./Corefile:/Corefile
+      - ./custom-hosts:/etc/coredns/hosts
+    command: -conf /Corefile
+    networks:
+      - dns-network
+
+networks:
+  dns-network:
+    driver: bridge

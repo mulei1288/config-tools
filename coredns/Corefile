@@ -1,0 +1,33 @@
+.:53 {
+    # 绑定所有接口
+    bind 0.0.0.0
+
+    # 启用日志
+    log
+
+    # 启用缓存
+    cache
+
+    # 自定义域名解析
+    hosts {
+        # 格式: IP 域名 [域名...]
+        10.201.33.54 gitlab.bingosoft.net
+        10.16.202.151 dev.bingosoft.net
+        # 转发所有其他查询到公共DNS
+        fallthrough
+    }
+
+    # 转发到上游DNS
+    forward . 8.8.8.8 1.1.1.1 {
+        max_concurrent 1000
+    }
+
+    # 健康检查
+    health :8080
+
+    # 监控指标
+    prometheus :9153
+
+    # 错误处理
+    errors
+}

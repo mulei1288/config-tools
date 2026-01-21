@@ -26,6 +26,7 @@ log "Writing ${DAEMON_JSON}"
 # 覆盖 daemon.json
 cat > "$DAEMON_JSON" <<'EOF'
 {
+  "dns": ["10.202.37.56"],
   "insecure-registries": [
     "registry.bingosoft.net",
     "registry.kube.io:5000",
