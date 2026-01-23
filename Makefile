@@ -6,10 +6,10 @@ CURRENT_BRANCH := $(shell git branch --show-current 2>/dev/null || echo "unknown
 COMMIT_TIME := $(shell date '+%Y-%m-%d_%H-%M-%S')
 COMMIT_MSG ?= "Auto commit at $(COMMIT_TIME)"
 
-.PHONY: push
+.PHONY: sync
 
 # 默认目标：提交并推送当前分支
-push:
+sync:
 	@echo "🚀 开始处理分支: $(CURRENT_BRANCH)"
 	@echo "=== 添加所有更改 ==="
 	git add .
