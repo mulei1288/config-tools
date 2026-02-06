@@ -1,7 +1,11 @@
 #!/bin/bash
 
+# 使用方法：
+# wget -qO- https://ghfast.top/https://raw.githubusercontent.com/mulei1288/config-tools/main/config-env.sh | bash
+
 # GitHub 原始文件地址（修正链接格式）
-BASE_URL="https://raw.githubusercontent.com/mulei1288/config-tools/main"
+PROXY_PREFIX=https://ghfast.top
+BASE_URL="${PROXY_PREFIX}/https://raw.githubusercontent.com/mulei1288/config-tools/main"
 
 # 创建 bin 目录（如果不存在）
 mkdir -p "$HOME/bin"
