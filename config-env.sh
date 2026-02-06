@@ -21,7 +21,7 @@ export PATH="$HOME/bin:$PATH"
 # 下载函数，带重试机制
 download_file() {
     local filename=$1
-    local url="${BASE_URL}/file/${filename}"
+    local url="${BASE_URL}/file/bin/${filename}"
     local dest="$HOME/bin/${filename}"
     
     echo "正在下载 ${filename}..."
