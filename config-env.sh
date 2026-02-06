@@ -7,22 +7,11 @@
 PROXY_PREFIX=https://ghfast.top
 BASE_URL="${PROXY_PREFIX}/https://raw.githubusercontent.com/mulei1288/config-tools/main"
 
-# 创建 bin 目录（如果不存在）
-mkdir -p "$HOME/bin"
-
-# 添加到 PATH（如果尚未添加）
-if ! grep -q "export PATH=\"\$HOME/bin:\$PATH\"" /etc/profile 2>/dev/null; then
-    echo 'export PATH="$HOME/bin:$PATH"' | sudo tee -a /etc/profile > /dev/null
-fi
-
-# 立即生效（可选，仅当前会话）
-export PATH="$HOME/bin:$PATH"
-
 # 下载函数，带重试机制
 download_file() {
     local filename=$1
     local url="${BASE_URL}/file/bin/${filename}"
-    local dest="$HOME/bin/${filename}"
+    local dest="/usr/local/bin/${filename}"
     
     echo "正在下载 ${filename}..."
     
@@ -58,6 +47,3 @@ download_file() {
 # 下载文件
 download_file "s"
 download_file "rcp"
-
-echo "安装完成！请重新登录或运行 'source /etc/profile' 使配置生效"
-echo "工具安装位置: $HOME/bin/"
